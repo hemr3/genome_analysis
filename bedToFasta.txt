@@ -1,0 +1,15 @@
+	#code for converting my bed files into fasta files
+	#using bedtools getfasta
+
+#make sure that the chr is added to the file - otherwise won't work
+#might get an error anyway if the code below adds a random extra line. Just make sure that all the bed files made do not have this extra line
+
+sed 's/^/chr/' ~/Research/Data/neanderthal_data/chag/chag_beds/specific_gene_beds/sz_microglia_targets/tab_tango2.chag.bed > ~/Research/Data/neanderthal_data/chag/chag_beds/specific_gene_beds/sz_microglia_targets/tab_chr_tango2.bed
+
+
+#bedtools getfasta
+
+bedtools getfasta -fi ~/Research/Data/sapiens_data/sapiens_fasta/GRCh37.p13.genome.fa -bed ~/Research/Data/neanderthal_data/chag/chag_beds/specific_gene_beds/sz_microglia_targets/tab_chr_tango2.bed -fo ~/Research/tango.try.fa
+
+
+

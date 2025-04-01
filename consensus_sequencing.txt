@@ -1,0 +1,18 @@
+	 #decompress - have to do it because the ones you download are not compressed in the correct format
+gzip -d chromosome_neanderthal.vcf.gz
+
+	#recompressing in correct format
+bgzip chromosome_neanderthal.vcf.gz
+
+	#creating an index file 
+tabix chromosome_neanderthal.vcf.gz
+
+	#slightly different to the mpileup method - it takes the reference and the data and gives the data the ref sequence if the position is low confidence
+bcftools consensus -f human_reffasta_chr[].fa.gz -o consen_chr[].fa chromosome_neanderthal.vcf.gz
+
+	#cut out the exons using: https://www.ncbi.nlm.nih.gov/CCDS/CcdsBrowse.cgi?REQUEST=GV&DATA=92322&BUILDS=ALLBUILDS
+samtools faidx consen_chr[].fa chr:pos-pos > gene_consen_exon_no.fa
+
+	#cat-ting all the exons together for translation
+cat ~/Research/*.fa > gene_total_exons.fa
+
