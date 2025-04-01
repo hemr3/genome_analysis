@@ -25,8 +25,11 @@ Code scripts that are useful for dealing with genetic information + analysis the
 ### fastqc_run.sh
   Small code snippet that runs the FASTQC algorithm, which quality controls raw genetic sequences. Intensive. Requires FASTA file. 
 
+### fetch_gene_symbols.py
+  Exchanges orthogroup IDs for gene symbols. Draws from online resources at biodbnet to ensure that the correct gene symbols are chosen. Intensive. Requires specialised files from Master's Capstone, but can be   adjusted to deal with different files. 
+
 ### final_identifier.sh
-  Directly associated with my Masters' Capstone project. This code snippet adjusts orthogroup identifiers to gene IDs and vice versa. 
+  Directly associated with my Master's Capstone project. This code snippet adjusts orthogroup identifiers to gene IDs and vice versa. 
 
 ### gffread_run.sh
   Runs the GFFRead algorithm on genetic files. Intensive. Requires both GFF files and FNA files for each individual. 
